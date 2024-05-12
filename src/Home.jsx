@@ -7,7 +7,7 @@ import { Link } from 'react-router-dom';
 function Home() {
   const getDate = () => {
     const date = new Date();
-    const hours = 22;
+    const hours = date.getHours();
 
     if (hours >= 12 && hours < 18) {
       return (
