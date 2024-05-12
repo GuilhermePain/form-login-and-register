@@ -17,7 +17,7 @@ export const MainContainerRegister = styled.main`
     }
 
     @media screen and (max-width: 450px){
-        padding: 30px 80px;
+        padding: 30px 60px;
 
         img {
             display: none;
