@@ -7,7 +7,7 @@ import { Link } from 'react-router-dom';
 function Home() {
   const getDate = () => {
     const date = new Date();
-    const hours = date.getHours();
+    const hours = 22;
 
     if (hours >= 12 && hours < 18) {
       return (
@@ -38,7 +38,7 @@ function Home() {
     <MainContainer>
       <article>
         <h1>"A tecnologia move o mundo!"</h1>
-        <h2>Steve Jobs</h2>
+        <h2> - Steve Jobs</h2>
       </article>
       {getDate()}
       <Link to="/login"><button>Começar</button></Link>

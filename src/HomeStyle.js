@@ -17,7 +17,7 @@ export const MainContainer = styled.main`
     }
 
     img {
-        max-width: 500px;
+        max-width: 60%;
     }
 
     p {
