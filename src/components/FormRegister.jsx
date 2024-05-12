@@ -7,6 +7,7 @@ const FormRegister = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [confirmPassword, setConfirmPassword] = useState('');
+    const [showPassword, setShowPassword] = useState(false);
     const [errors, setErrors] = useState({});
 
     const handleSubmit = (e) => {
@@ -49,6 +50,7 @@ const FormRegister = () => {
                             onChange={(e) => setEmail(e.target.value)}
                             type="email" 
                             placeholder='Digite seu email'
+                            onFocus={() => setErrors({ ...errors, email: '' })}
                         />
                         {errors.email && <p className='errorMessage'>{errors.email}</p>}
                     </Fields>
@@ -57,8 +59,9 @@ const FormRegister = () => {
                         <input 
                             value={password} 
                             onChange={(e) => setPassword(e.target.value)} 
-                            type="password" 
+                            type={showPassword ? "text" : "password"} 
                             placeholder='Digite sua senha'
+                            onFocus={() => setErrors({ ...errors, password: '' })}
                         />
                         {errors.password && <p className='errorMessage'>{errors.password}</p>}
                     </Fields>
@@ -67,19 +70,22 @@ const FormRegister = () => {
                         <input 
                             value={confirmPassword} 
                             onChange={(e) => setConfirmPassword(e.target.value)} 
-                            type="password" 
+                            type={showPassword ? "text" : "password"} 
                             placeholder='Confirme sua senha'
+                            onFocus={() => setErrors({ ...errors, confirmPassword: '' })}
                         />
                         {errors.confirmPassword && <p className='errorMessage'>{errors.confirmPassword}</p>}
                     </Fields>
                     <div>
-                        <input type="checkbox" />
+                        <input 
+                            type="checkbox" 
+                            checked={showPassword} 
+                            onChange={() => setShowPassword(!showPassword)} 
+                        />
                         <label>Mostrar senha</label>
                     </div>
                     <SubmitButton type='submit'>Registrar</SubmitButton>
-                    <p>
-                        Já tem uma conta? <Link to="/login">Entrar</Link>
-                    </p>
+                    <p>Já tem uma conta? <Link to="/login">Entrar</Link></p>
                 </FormContainerRegister>
             </MainContainerRegister>
         </>

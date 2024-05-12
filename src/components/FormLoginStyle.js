@@ -10,7 +10,6 @@ export const MainContainerLogin = styled.main`
     padding: 0 40px 0 0;
     animation: fadeIn 0.5s ease-in-out forwards;
 
-
     img {
         width: 100%;
         border-radius: 30px 0 0 30px;
@@ -23,7 +22,6 @@ export const MainContainerLogin = styled.main`
             display: none;
         }
     }
-
 `;
 
 export const FormContainerLogin = styled.form`
@@ -53,12 +51,17 @@ export const Fields = styled.div`
     justify-content: content;
     align-items: left;
 
+    label {
+        margin-bottom: 5px;
+    }
+
     input {
         outline: 0;
-        border: 2px solid transparent;
+        border: 2px solid ${({ showError }) => (showError ? 'red' : 'transparent')};
         border-radius: 30px;
         padding: 10px;
-        background-color: #F5F5F5;
+        background-color: #f5f5f5;
+        transition: border-color 0.3s ease;
     }
 
     input:hover, input:focus {
@@ -66,10 +69,10 @@ export const Fields = styled.div`
     }
 
     .errorMessage {
-    color: red;
-    margin-top: 5px;
-    display: ${({ showError }) => (showError ? 'block' : 'none')};
-  }
+        color: red;
+        margin-top: 5px;
+        display: ${({ showError }) => (showError ? 'block' : 'none')};
+    }
 `;
 
 export const SubmitButton = styled.button`
@@ -83,10 +86,6 @@ export const SubmitButton = styled.button`
     font-weight: 600;
     padding: 10px;
     cursor: pointer;
-
-    /* button:hover {
-        padding: 12px 30px;
-    } */
 
     &:active {
         background-color: transparent;

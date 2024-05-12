@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import imgWelcome from '../assets/undraw_Welcome_re_h3d9.png';
-import { FormContainerLogin, MainContainerLogin, Fields, SubmitButton } from '../components/FormLoginStyle';
+import { FormContainerLogin, MainContainerLogin, Fields, SubmitButton } from './FormLoginStyle';
 
 const FormLogin = () => {
     const [email, setEmail] = useState('');
@@ -34,6 +34,7 @@ const FormLogin = () => {
                 <FormContainerLogin onSubmit={handleSubmit}>
                     <h1>Login</h1>
                     <hr />
+                    {errors.auth && <p className='errorMessage'>{errors.auth}</p>}
                     <Fields showError={!!errors.email}>
                         <label>Email</label>
                         <input
@@ -41,6 +42,7 @@ const FormLogin = () => {
                             value={email}
                             onChange={(e) => setEmail(e.target.value)}
                             placeholder='Digite seu email'
+                            onFocus={() => setErrors({ ...errors, email: '' })}
                         />
                         {errors.email && <p className='errorMessage'>{errors.email}</p>}
                     </Fields>
@@ -51,7 +53,7 @@ const FormLogin = () => {
                             value={password}
                             onChange={(e) => setPassword(e.target.value)}
                             placeholder='Digite sua senha'
-                        />
+                            onFocus={() => setErrors({ ...errors, password: '' })}                        />
                         {errors.password && <p className='errorMessage'>{errors.password}</p>}
                     </Fields>
                     <div>

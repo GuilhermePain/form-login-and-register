@@ -10,13 +10,12 @@ export const MainContainerRegister = styled.main`
     padding: 40px 40px 40px 0;
     animation: fadeIn 0.5s ease-in-out forwards;
 
-
     img {
         width: 100%;
         border-radius: 30px 0 0 30px;
     }
 
-    @media screen and (max-width: 450px){
+    @media screen and (max-width: 450px) {
         padding: 30px 60px;
 
         img {
@@ -33,18 +32,19 @@ export const FormContainerRegister = styled.form`
     align-items: left;
     gap: 10px;
 
-    h1, p {
+    h1,
+    p {
         text-align: center;
     }
 
     hr {
-        border: 2px solid #6C63FF;
+        border: 2px solid #6c63ff;
         border-radius: 30px;
         width: 140px;
         margin: auto;
     }
 
-    @media screen and (max-width: 450px){
+    @media screen and (max-width: 450px) {
         width: 100%;
     }
 `;
@@ -56,23 +56,29 @@ export const Fields = styled.div`
     justify-content: content;
     align-items: left;
 
-    input {
-        outline: 0;
-        border: 2px solid transparent;
-        border-radius: 30px;
-        padding: 10px;
-        background-color: #F5F5F5;
+    label {
+        margin-bottom: 5px;
     }
 
-    input:hover, input:focus {
-        border: 2px solid #6C63FF;
+    input {
+        outline: 0;
+        border: 2px solid ${({ showError }) => (showError ? 'red' : 'transparent')}; 
+        border-radius: 30px;
+        padding: 10px;
+        background-color: #f5f5f5;
+        transition: border-color 0.3s ease; 
+    }
+
+    input:hover,
+    input:focus {
+        border-color: #6c63ff;
     }
 
     .errorMessage {
-    color: red;
-    margin-top: 5px;
-    display: ${({ showError }) => (showError ? 'block' : 'none')};
-  }
+        color: red;
+        margin-top: 5px;
+        display: ${({ showError }) => (showError ? 'block' : 'none')};
+    }
 `;
 
 export const SubmitButton = styled.button`
@@ -81,19 +87,15 @@ export const SubmitButton = styled.button`
     border: 2px solid transparent;
     margin: 10px auto 0 auto;
     border-radius: 30px;
-    background-color: #6C63FF;
+    background-color: #6c63ff;
     color: white;
     font-weight: 600;
     padding: 10px;
     cursor: pointer;
 
-    /* button:hover {
-        padding: 12px 30px;
-    } */
-
     &:active {
         background-color: transparent;
-        border: 2px solid #6C63FF;
-        color: #6C63FF;
+        border: 2px solid #6c63ff;
+        color: #6c63ff;
     }
 `;
