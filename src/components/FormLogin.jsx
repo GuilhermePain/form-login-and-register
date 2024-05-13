@@ -38,7 +38,6 @@ const FormLogin = () => {
                 <FormContainerLogin onSubmit={handleSubmit}>
                     <h1>Login</h1>
                     <hr />
-                    {errors.auth && <p className='errorMessage'>{errors.auth}</p>}
                     <Fields showError={!!errors.email}>
                         <label>Email</label>
                         <input
@@ -57,7 +56,8 @@ const FormLogin = () => {
                             value={password}
                             onChange={(e) => setPassword(e.target.value)}
                             placeholder='Digite sua senha'
-                            onFocus={() => setErrors({ ...errors, password: '' })}                        />
+                            onFocus={() => setErrors({ ...errors, password: '' })}
+                        />
                         {errors.password && <p className='errorMessage'>{errors.password}</p>}
                     </Fields>
                     <div>
