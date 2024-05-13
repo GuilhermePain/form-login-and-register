@@ -34,7 +34,6 @@ const FormLogin = () => {
                 <FormContainerLogin onSubmit={handleSubmit}>
                     <h1>Login</h1>
                     <hr />
-                    {errors.auth && <p className='errorMessage'>{errors.auth}</p>}
                     <Fields showError={!!errors.email}>
                         <label>Email</label>
                         <input
