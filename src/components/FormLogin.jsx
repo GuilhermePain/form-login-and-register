@@ -16,10 +16,10 @@ const FormLogin = () => {
 
         if (!email.trim()) {
             validationErrors.email = 'O campo de email não pode ficar vazio.';
-        }
-
-        if (!password.trim()) {
+        } else if (!password.trim()) {
             validationErrors.password = 'O campo de senha não pode ficar vazio.';
+        } else {
+            alert('Usuário logado com sucesso!');
         }
 
         setErrors(validationErrors);

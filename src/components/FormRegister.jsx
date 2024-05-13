@@ -17,18 +17,24 @@ const FormRegister = () => {
 
         if (!email.trim()) {
             validationErrors.email = 'O campo de email não pode ficar vazio.';
+        } else {
+            alert('Usuário registrado com sucesso!');
         }
 
         if (!password.trim()) {
             validationErrors.password = 'O campo de senha não pode ficar vazio.';
         } else if (password.length < 8) {
             validationErrors.password = 'A senha deve ter no mínimo 8 caracteres.';
+        } else {
+            alert('Usuário registrado com sucesso!');
         }
 
         if (!confirmPassword.trim()) {
             validationErrors.confirmPassword = 'Confirme a senha.';
         } else if (password !== confirmPassword) {
             validationErrors.confirmPassword = 'As senhas não coincidem.';
+        } else {
+            alert('Usuário registrado com sucesso!');
         }
 
         setErrors(validationErrors);
